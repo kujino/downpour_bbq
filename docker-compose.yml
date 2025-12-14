@@ -1,0 +1,13 @@
+services:
+  api:
+    build:
+      context: ./backend
+    env_file:
+      - ./backend/.env.local
+    command: bundle exec puma -C config/puma.rb
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:/app
+    tty: true
+    stdin_open: true
