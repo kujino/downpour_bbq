@@ -5,6 +5,11 @@
   gap: 12px;
 }
 
+h3 {
+  font-family: "Inter", sans-serif;
+  letter-spacing: 0.1em;
+}
+
 .comment-error {
   color: red;
   font-size: 12px;

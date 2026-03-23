@@ -3,9 +3,9 @@ import SideMenuContent from "./SideMenuContent";
 
 type Props = {
   open: boolean;
-  activeSection: "about" | "comment" | "timer" | null;
+  activeSection: "about" | "comment" | null;
   setActiveSection: React.Dispatch<
-    React.SetStateAction<"about" | "comment" | "timer" | null>
+    React.SetStateAction<"about" | "comment" | null>
   >;
   bellCount: number | null;
 };
@@ -18,12 +18,7 @@ const SideMenu =  ({
 }: Props) => {
   if (!open) return null;
 
-  const playSound = () => {
-    const audio = new Audio("/orin-sound.mp3");
-    audio.play();
-  };
-
-  const handleToggle = (section: "about" | "comment" | "timer") => {
+  const handleToggle = (section: "about" | "comment") => {
     setActiveSection((prev) => (prev === section ? null : section));
   };
 
@@ -49,19 +44,6 @@ const SideMenu =  ({
             <span className="menu-text">当アプリについて</span>
 
             {activeSection === "about" && (
-              <span className="menu-toggle">−</span>
-            )}
-          </button>
-        </li>
-
-        <li>
-          <button
-            className="menu-link"
-            onClick={() => handleToggle("timer")}
-          >
-            <span className="menu-text">タイマー</span>
-
-            {activeSection === "timer" && (
               <span className="menu-toggle">−</span>
             )}
           </button>
@@ -97,7 +79,6 @@ const SideMenu =  ({
         <SideMenuContent
           activeSection={activeSection}
           bellCount={bellCount}
-          onTimerFinish={playSound}
         />
       </div>
     </aside>
