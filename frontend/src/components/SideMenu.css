@@ -29,6 +29,11 @@
   margin-bottom: 16px;
 }
 
+h3 {
+  font-family: "Inter", sans-serif;
+  letter-spacing: 0.1em;
+}
+
 .menu-link {
   display: flex;
   align-items: center;
